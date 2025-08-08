@@ -125,7 +125,7 @@ export default function VideoUploadPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-950 via-purple-900 to-purple-800 text-white px-4 py-12 flex flex-col items-center">
-      <h1 className="text-4xl font-bold mb-8 text-purple-200 text-center">
+      <h1 className="text-4xl font-bold mb-8 text-purple-200 text-center pt-24">
         Upload Video untuk Deteksi Emosi
       </h1>
 

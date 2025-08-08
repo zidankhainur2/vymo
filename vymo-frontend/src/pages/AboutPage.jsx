@@ -1,23 +1,32 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin } from "lucide-react";
-import dan from "../assets/dan.JPG"; // Ganti dengan path gambar asli
-import dip from "../assets/dip.JPG"; // Ganti dengan path gambar asli
+import dan from "../assets/dan.JPG";
+import dip from "../assets/dip.JPG";
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
 export default function AboutPage() {
   const contributors = [
     {
       name: "Ahmad Fauzidan Yahya Khainur",
       role: "AI Engineer & Backend Developer",
-      img: dan, // Ganti dengan path gambar asli
+      img: dan,
       github: "https://github.com/zidanhkainur2",
       linkedin: "https://www.linkedin.com/in/ahmad-fauzidan-yahya-khainur/",
     },
     {
       name: "Nadhif Hafiz Pradiptya",
       role: "Frontend Developer & UI Designer",
-      img: dip, // Ganti dengan path gambar asli
-      github: "https://github.com/username2",
-      linkedin: "https://linkedin.com/in/username2",
+      img: dip,
+      github: "https://github.com/username2", // Ganti dengan link yang benar
+      linkedin: "https://linkedin.com/in/username2", // Ganti dengan link yang benar
     },
   ];
 
@@ -25,143 +34,131 @@ export default function AboutPage() {
     "python",
     "tensorflow",
     "keras",
-    "javascript",
+    "opencv",
+    "fastapi",
     "react",
     "tailwindcss",
-    "vercel",
-    "kaggle",
+    "vite",
     "github",
-    // "vscode",
-    // "framer-motion",
-    // "lucide-react",
   ];
 
   return (
-    <div className="min-h-screen bg-white px-6 py-16 flex flex-col items-center text-center">
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-bold text-purple-700 mb-6"
-      >
-        Tentang VYMO
-      </motion.h1>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-        className="max-w-3xl text-gray-700 text-lg leading-relaxed mb-10"
-      >
-        <strong>VYMO</strong> (Visual Your Mood) adalah platform cerdas berbasis{" "}
-        <strong>machine learning</strong> yang dirancang untuk{" "}
-        <strong>mendeteksi emosi wajah manusia</strong> melalui gambar dan
-        video. Kami percaya bahwa teknologi dapat membantu memahami ekspresi
-        emosional secara lebih mendalam untuk berbagai keperluan, mulai dari
-        edukasi, kesehatan mental, hingga interaksi sosial berbasis AI.
-      </motion.p>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-        className="grid md:grid-cols-2 gap-6 max-w-4xl text-left"
-      >
-        <div className="p-6 border rounded-xl shadow-sm bg-purple-50">
-          <h2 className="text-xl font-semibold text-purple-700 mb-2">
-            🎯 Misi Kami
-          </h2>
-          <p className="text-gray-700">
-            Menghadirkan solusi praktis dalam pengenalan emosi yang akurat dan
-            real-time, dengan teknologi yang mudah diakses oleh semua kalangan.
+    <div className="min-h-screen bg-gradient-to-br from-purple-950 via-purple-900 to-purple-800 text-white px-4 py-24">
+      <div className="container mx-auto max-w-4xl text-center">
+        {/* --- Bagian Header --- */}
+        <motion.div
+          className="mb-16"
+          initial="hidden"
+          animate="visible"
+          variants={sectionVariants}
+        >
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 pt-24">
+            Tentang VYMO
+          </h1>
+          <p className="text-lg text-purple-200 max-w-3xl mx-auto leading-relaxed">
+            <strong>VYMO</strong> (Visual Your Mood) adalah platform cerdas yang
+            dirancang untuk mendeteksi emosi wajah manusia melalui gambar dan
+            video, menjembatani teknologi AI dengan pemahaman ekspresi manusia.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="p-6 border rounded-xl shadow-sm bg-purple-50">
-          <h2 className="text-xl font-semibold text-purple-700 mb-2">
-            🧪 Fitur Unggulan
+        {/* --- Bagian Misi & Teknologi --- */}
+        <motion.div
+          className="mb-20 text-left bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 md:p-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={sectionVariants}
+        >
+          <h2 className="text-2xl font-bold mb-4 text-purple-300">
+            Misi dan Teknologi di Balik VYMO
           </h2>
-          <ul className="text-gray-700 list-disc list-inside space-y-1">
-            <li>Deteksi emosi real-time dari kamera</li>
-            <li>Analisis emosi dari foto & video</li>
-            <li>Multi-face detection dan visualisasi bounding box</li>
-            <li>API analisis untuk integrasi sistem</li>
-          </ul>
-        </div>
-
-        <div className="p-6 border rounded-xl shadow-sm bg-purple-50">
-          <h2 className="text-xl font-semibold text-purple-700 mb-2">
-            🧑‍💻 Developer
-          </h2>
-          <p className="text-gray-700">
-            Proyek ini dikembangkan sebagai bagian dari tugas akhir pengembangan
-            aplikasi berbasis AI & pengolahan citra digital.
-          </p>
-        </div>
-
-        {/* BARU: Tambahkan bagian "Bagaimana Cara Kerjanya?" */}
-        <div className="p-6 border rounded-xl shadow-sm bg-purple-50">
-          <h2 className="text-xl font-semibold text-purple-700 mb-2">
-            🤖 Bagaimana Cara Kerjanya?
-          </h2>
-          <p className="text-gray-700">
-            Inti dari VYMO adalah model{" "}
+          <p className="text-gray-300 leading-relaxed">
+            Misi kami adalah menyediakan solusi pengenalan emosi yang akurat dan
+            mudah diakses. Inti dari VYMO adalah model{" "}
             <strong>Convolutional Neural Network (CNN)</strong> yang dilatih
             pada dataset <strong>FER-2013</strong>. Backend kami yang dibangun
             dengan <strong>Python</strong> dan <strong>FastAPI</strong>{" "}
             menggunakan <strong>OpenCV</strong> untuk mendeteksi wajah, lalu
-            mengumpankannya ke model untuk klasifikasi emosi.
+            mengumpankannya ke model untuk klasifikasi emosi secara real-time.
           </p>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      <h2 className="text-3xl font-bold mt-16 mb-8 text-purple-700">
-        👥 Kontributor
-      </h2>
-      <div className="grid md:grid-cols-2 gap-8 max-w-4xl w-full">
-        {contributors.map((c, i) => (
-          <div
-            key={i}
-            className="bg-white border p-6 rounded-xl shadow-md flex flex-col items-center"
-          >
-            <img
-              src={c.img}
-              alt={c.name}
-              className="w-28 h-28 object-cover rounded-full mb-4"
-            />
-            <h3 className="text-xl font-semibold text-gray-800">{c.name}</h3>
-            <p className="text-sm text-gray-600 mb-3">{c.role}</p>
-            <div className="flex space-x-4">
-              <a href={c.linkedin} target="_blank" rel="noopener noreferrer">
-                <Linkedin className="w-5 h-5 text-blue-600 hover:text-blue-800" />
-              </a>
-              <a href={c.github} target="_blank" rel="noopener noreferrer">
-                <Github className="w-5 h-5 text-gray-700 hover:text-black" />
-              </a>
-            </div>
+        {/* --- Bagian Kontributor --- */}
+        <motion.div
+          className="mb-20"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={sectionVariants}
+        >
+          <h2 className="text-3xl font-bold mb-10 text-white">
+            Tim Pengembang
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            {contributors.map((c, i) => (
+              <div
+                key={i}
+                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105 hover:bg-white/10"
+              >
+                <img
+                  src={c.img}
+                  alt={c.name}
+                  className="w-28 h-28 object-cover rounded-full mb-4 border-2 border-purple-400"
+                />
+                <h3 className="text-xl font-semibold text-white">{c.name}</h3>
+                <p className="text-sm text-purple-300 mb-4">{c.role}</p>
+                <div className="flex space-x-5">
+                  <a
+                    href={c.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
+                    <Linkedin className="w-6 h-6" />
+                  </a>
+                  <a
+                    href={c.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
+                    <Github className="w-6 h-6" />
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </motion.div>
 
-      <h2 className="text-3xl font-bold mt-20 mb-8 text-purple-700">
-        🛠️ Teknologi yang Digunakan
-      </h2>
-      <div className="flex flex-wrap justify-center gap-6 max-w-5xl">
-        {techStack.map((tech, idx) => (
-          <div
-            key={idx}
-            className="flex flex-col items-center bg-gray-50 border p-4 rounded-xl shadow-sm w-28 h-28"
-          >
-            <img
-              src={`https://cdn.simpleicons.org/${tech}/6b46c1/60`} // Ganti warna kalau perlu
-              alt={tech}
-              className="w-10 h-10 mb-2"
-            />
-            <p className="text-xs text-gray-700 font-medium text-center">
-              {tech.replace("-", " ")}
-            </p>
+        {/* --- Bagian Teknologi --- */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={sectionVariants}
+        >
+          <h2 className="text-3xl font-bold mb-10 text-white">
+            Teknologi yang Digunakan
+          </h2>
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 max-w-3xl mx-auto">
+            {techStack.map((tech) => (
+              <div
+                key={tech}
+                className="flex flex-col items-center text-center group"
+              >
+                <img
+                  src={`https://cdn.simpleicons.org/${tech}/a78bfa`}
+                  alt={tech}
+                  className="w-10 h-10 transition-transform duration-300 group-hover:scale-110"
+                />
+                <p className="text-xs text-gray-400 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 capitalize">
+                  {tech.replace("-", " ")}
+                </p>
+              </div>
+            ))}
           </div>
-        ))}
+        </motion.div>
       </div>
     </div>
   );

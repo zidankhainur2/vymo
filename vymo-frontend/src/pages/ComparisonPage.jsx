@@ -125,7 +125,7 @@ export default function ComparisonPage() {
     <div className="min-h-screen bg-gradient-to-br from-purple-950 via-purple-900 to-purple-800 text-white px-4 py-12">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-purple-200">
+          <h1 className="text-4xl font-bold text-purple-200 pt-24">
             Bandingkan Emosi dari Dua Gambar
           </h1>
           <p className="text-purple-300 mt-2">

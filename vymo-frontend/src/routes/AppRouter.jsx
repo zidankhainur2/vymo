@@ -32,7 +32,6 @@ export default function AppRouter() {
             </Routes>
           </AnimatePresence>
         </main>
-        <Footer />
       </div>
     </Router>
   );
